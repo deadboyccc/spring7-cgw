@@ -1,7 +1,5 @@
 package dev.dead.spring7cgw;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.function.RouterFunction;
 import org.springframework.web.servlet.function.ServerResponse;
 
@@ -11,10 +9,10 @@ import static org.springframework.cloud.gateway.server.mvc.handler.GatewayRouter
 import static org.springframework.cloud.gateway.server.mvc.handler.HandlerFunctions.http;
 import static org.springframework.cloud.gateway.server.mvc.predicate.GatewayRequestPredicates.path;
 
-@Configuration
-public class GatewayConfig {
+//@Configuration
+abstract public class GatewayConfig {
 
-    @Bean
+    //    @Bean
     public RouterFunction<ServerResponse> gatewayRoutes() {
         return route("dummy_routes")
                 .route(path("/json/**"), http("https://jsonplaceholder.typicode.com")).filter(setPath("/posts"))
